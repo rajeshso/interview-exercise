@@ -1,6 +1,6 @@
 package com.acme.mytrader.price;
 
-public interface PriceSource {
+public interface PriceSource extends Runnable {
 
   void addPriceListener(PriceListener listener);
 

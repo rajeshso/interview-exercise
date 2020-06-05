@@ -63,6 +63,8 @@ The Price Listener monitors the events, strikes a trade when there is price matc
 
 The TradeExceutionService prints the trade that is successful.
 
+The PriceSource extends Runnable to make it an async
+
 The objective of the candidate is to keep the implementation very simple and easy to read. So, the functionalities are minimal. 
 
 The rest of the program is self-explanatory.
