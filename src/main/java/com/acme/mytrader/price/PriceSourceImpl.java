@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Getter
-public class PriceSourceImpl implements PriceSource {
+public class PriceSourceImpl implements PriceSourceRunnable {
 
   private final List<PriceListener> priceListeners = new CopyOnWriteArrayList<>();
 

@@ -5,8 +5,8 @@ import static java.util.Arrays.asList;
 import com.acme.mytrader.execution.ExecutionService;
 import com.acme.mytrader.execution.TradeExecutionService;
 import com.acme.mytrader.price.BuyPriceListener;
-import com.acme.mytrader.price.PriceSource;
 import com.acme.mytrader.price.PriceSourceImpl;
+import com.acme.mytrader.price.PriceSourceRunnable;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,7 +24,7 @@ import lombok.Getter;
 public class TradingStrategy {
 
   private final ExecutionService tradeExecutionService;
-  private final PriceSource priceSource;
+  private final PriceSourceRunnable priceSource;
 
   public void autoBuy(List<SecurityDTO> request) throws InterruptedException {
 
