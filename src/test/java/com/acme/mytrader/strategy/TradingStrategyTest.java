@@ -22,7 +22,7 @@ public class TradingStrategyTest {
   @Test
   public void testAutoBuyForSuccessfulBuy() {
     ExecutionService tradeExecutionService = Mockito.mock(ExecutionService.class);
-    PriceSourceImpl priceSource = new TestPriceSource("IBM", 25.00);
+    PriceSourceImpl priceSource = new MockPriceSource("IBM", 25.00);
     ArgumentCaptor<String> securityCaptor = ArgumentCaptor.forClass(String.class);
     ArgumentCaptor<Double> priceCaptor = ArgumentCaptor.forClass(Double.class);
     ArgumentCaptor<Integer> volumeCaptor = ArgumentCaptor.forClass(Integer.class);
@@ -40,7 +40,7 @@ public class TradingStrategyTest {
   @Test
   public void testAutoBuyForNotSuccessfulBuy() {
     ExecutionService tradeExecutionService = Mockito.mock(ExecutionService.class);
-    PriceSourceImpl priceSource = new TestPriceSource("IBM", 25.00);
+    PriceSourceImpl priceSource = new MockPriceSource("IBM", 25.00);
 
     TradingStrategy tradingStrategy = new TradingStrategy(tradeExecutionService, priceSource);
     List<SecurityDTO> input = Arrays.asList(new SecurityDTO("APPL", 50.00, 10));
@@ -48,12 +48,12 @@ public class TradingStrategyTest {
     verifyZeroInteractions(tradeExecutionService);
   }
 
-  private class TestPriceSource extends PriceSourceImpl {
+  private class MockPriceSource extends PriceSourceImpl {
 
     String security;
     double price;
 
-    TestPriceSource(String security, double price) {
+    MockPriceSource(String security, double price) {
       this.security = security;
       this.price = price;
     }
